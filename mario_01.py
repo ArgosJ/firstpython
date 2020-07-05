@@ -54,6 +54,18 @@ class MyGame(arcade.Window):
         self.player_sprite.center_y = 93
         self.player_list.append(self.player_sprite)
 
+        #nuebe
+        for nube in range(100, 1250, 200):
+            wall = arcade.Sprite("nube.png", GROUND_SCALING)
+            wall.center_x = nube
+            wall.center_y = 450
+            self.wall_list.append(wall)     
+        for nube2 in range(0, 1250, 200):
+            wall = arcade.Sprite("nube.png", GROUND_SCALING)
+            wall.center_x = nube2
+            wall.center_y = 300
+            self.wall_list.append(wall)       
+
         # Create the ground
         # This shows using a loop to place multiple sprites horizontally
         for x in range(0, 1250, 64):
@@ -87,7 +99,7 @@ class MyGame(arcade.Window):
 
         if key == arcade.key.UP or key == arcade.key.W:
             if self.physics_engine.can_jump():
-                self.player_sprite.change_y = PLAYER_JUMP_SPEED
+                self.player_sprite.change_y = (PLAYER_JUMP_SPEED)
         elif key == arcade.key.LEFT or key == arcade.key.A:
             self.player_sprite.change_x = -PLAYER_MOVEMENT_SPEED
         elif key == arcade.key.RIGHT or key == arcade.key.D:
